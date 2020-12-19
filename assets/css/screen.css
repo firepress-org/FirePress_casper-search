@@ -2900,7 +2900,7 @@ Search results
     width: 100%;
     opacity: 0.8;
     border: 0;
-    border-radius: 3px;
+    border-radius: 4px;
     transition: all 0.2s ease-in-out;
     background-color: #FFF;
     padding: 5px 20px;
@@ -2932,6 +2932,8 @@ Search results
     background-color: #fff;
     width: 100%;
     margin-top: 2px;
+    border-radius: 4px;
+    overflow: hidden;
 }
 .search-results a{
     color: #26a8ed;
