@@ -15,6 +15,15 @@ into the {body} of the default.hbs template --}}
                     {{/if}}
                 </h1>
                 <h2 class="site-description">{{@site.description}}</h2>
+                <div class="search-wrap">
+                    <div class="search-input">
+                        <input type="text" id="search-field" placeholder="Search...">
+                        <div class="search-clear">
+                            <svg class="svg-inline--fa fa-times-circle fa-w-16" id="clear-search" aria-hidden="true" data-prefix="fa" data-icon="times-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="" style="display: inline;"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path></svg>
+                        </div>
+                    </div>
+                    <div class="search-results" id="results"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -92,6 +101,80 @@ into the {body} of the default.hbs template --}}
         window.addEventListener('resize', onResize, false);
 
         update();
+
+
+        var serachContentApi = "{{@site.url}}/ghost/api/v3/content/posts/?key=" + window.contentApiKey + "&limit=all&fields=id,title,excerpt,feature_image,custom_excerpt,url,published_at&formats=plaintext&include=tags";
+
+        // Search results
+        var posts = [],
+        searchKey = $("#search-field"),
+        searchContent = $('#results'),
+        searchClear = $('.search-clear')
+
+        if (posts.length == 0 && typeof serachContentApi !== undefined) {
+            $.get(serachContentApi)
+                .done(function(data) {
+                    posts = data.posts
+                    search()
+                })
+                .fail(function(err) {
+                    console.log('failed')
+                })
+        }
+
+        function search(){
+        var options = {
+            shouldSort: true,
+            tokenize: true,
+            matchAllTokens: true,
+            threshold: 0,
+            location: 0,
+            distance: 100,
+            maxPatternLength: 32,
+            minMatchCharLength: 1,
+            keys: [{
+              name: 'title',
+              weight: 0.3
+            }, {
+              name: 'plaintext',
+              weight: 0.7
+            }]
+          };
+          var fuse = new Fuse(posts, options)
+          
+        searchKey.keyup(function(){
+            var value = this.value,
+            search = fuse.search(value),
+            output = '',
+            language = $('html').attr('lang')
+            if(posts.length > 0){
+                searchKey.parent().addClass('active')
+                $.each(search, function(key, val) {
+                    var pubDate = new Date(
+                        val.published_at
+                    ).toLocaleDateString(language, {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                    })
+                    output += `<a class="single-result" href="${val.url}">${val.title}</a>`
+                })
+
+                searchContent.html(output)
+            }
+            if(value === ''){
+                searchKey.parent().removeClass('active')
+                searchContent.html('')
+            }
+            
+        })
+        searchClear.on('click', function(){
+            searchKey.val('')
+            searchKey.parent().removeClass('active')
+            searchContent.html('')
+
+        })
+    } 
 
     });
 </script>
