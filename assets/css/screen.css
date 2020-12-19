@@ -2890,6 +2890,7 @@ Search results
     z-index: 999;
     width: 100%;
     margin-top: 25px;
+    border-radius: 3px;
 }
 .search-input{
     width: 100%;
