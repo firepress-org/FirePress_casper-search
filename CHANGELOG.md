@@ -12,6 +12,16 @@ Based on this [template](https://gist.github.com/pascalandy/af709db02d3fe132a3e6
 
 # Releases
 
+## 3.1.2-r2 (2020-12-21)
+### ⚡️ Updates
+- [2585df1](https://github.com/firepress-org/Casper/commit/2585df1) Update Casper to version 3.1.2-r2 /Dockerfile
+- [5fab839](https://github.com/firepress-org/Casper/commit/5fab839) Init README-FirePress-Dev.md
+- [c77524d](https://github.com/firepress-org/Casper/commit/c77524d) new built
+- [b245cd7](https://github.com/firepress-org/Casper/commit/b245cd7) rename theme without capital
+
+### 🔍 Compare
+- ... with previous release: [3.1.2-r1 <> 3.1.2-r2](https://github.com/firepress-org/Casper/compare/3.1.2-r1...3.1.2-r2)
+
 ## 3.1.2 (2020-12-21)
 ### ⚡️ Updates
 - [7cefb32](https://github.com/firepress-org/Casper/commit/7cefb32) Add Dockerfile
