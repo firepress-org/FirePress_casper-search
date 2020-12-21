@@ -5,7 +5,7 @@
 
 ARG APP_NAME="Casper"
 ARG VERSION="3.1.2"
-ARG RELEASE="3.1.2"
+ARG RELEASE="3.1.2-r1"
 ARG GITHUB_USER="firepress-org"
 
 ###################################
