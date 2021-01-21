@@ -3,9 +3,9 @@
 # REQUIRED for Github Action CI template https://github.com/firepress-org/ghostfire/tree/master/.github/workflows
 ###################################
 
-ARG APP_NAME="Casper"
+ARG APP_NAME="casper-search"
 ARG VERSION="3.1.2"
-ARG RELEASE="3.1.2-r2"
+ARG RELEASE="3.1.2-r3"
 ARG GITHUB_USER="firepress-org"
 
 ###################################
@@ -17,5 +17,5 @@ ARG DOCKERHUB_USER="devmtl"
 ARG GITHUB_ORG="firepress-org"
 ARG GITHUB_REGISTRY="registry"
 
-ARG GIT_REPO_DOCKERFILE="https://github.com/firepress-org/Casper"
-ARG GIT_REPO_SOURCE="https://github.com/firepress-org/Casper"
+ARG GIT_REPO_DOCKERFILE="https://github.com/firepress-org/casper-search"
+ARG GIT_REPO_SOURCE="https://github.com/firepress-org/casper-search"
