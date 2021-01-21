@@ -12,6 +12,13 @@ Based on this [template](https://gist.github.com/pascalandy/af709db02d3fe132a3e6
 
 # Releases
 
+## 3.1.2-r3 (2021-01-20)
+### ⚡️ Updates
+- [d599f3b5](https://github.com/firepress-org/Casper/commit/d599f3b5) rename theme casper-search
+
+### 🔍 Compare
+- ... with previous release: [3.1.2-r2 <> 3.1.2-r3](https://github.com/firepress-org/Casper/compare/3.1.2-r2...3.1.2-r3)
+
 ## 3.1.2-r2 (2020-12-21)
 ### ⚡️ Updates
 - [2585df1](https://github.com/firepress-org/Casper/commit/2585df1) Update Casper to version 3.1.2-r2 /Dockerfile
