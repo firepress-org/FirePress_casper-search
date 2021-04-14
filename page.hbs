@@ -43,7 +43,11 @@ into the {body} of the default.hbs template --}}
 
             <section class="post-full-content">
                 <div class="post-content">
+                    {{#if access}}
                     {{content}}
+                    {{else}}
+                    {{{html}}}
+                    {{/if}}
                 </div>
             </section>
 
