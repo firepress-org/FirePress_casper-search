@@ -103,7 +103,7 @@ into the {body} of the default.hbs template --}}
         update();
 
 
-        var serachContentApi = "{{@site.url}}/ghost/api/v3/content/posts/?key=" + window.contentApiKey + "&limit=all&fields=id,title,excerpt,feature_image,custom_excerpt,url,published_at&formats=plaintext&include=tags";
+        var serachContentApi = "{{@site.url}}/ghost/api/v4/content/posts/?key=" + window.contentApiKey + "&limit=all&fields=id,title,excerpt,feature_image,custom_excerpt,url,published_at&formats=plaintext&include=tags";
 
         // Search results
         var posts = [],
